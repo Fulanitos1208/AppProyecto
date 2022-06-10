@@ -9,18 +9,14 @@ namespace AppProyecto
     public frmXml()
     {
       InitializeComponent();
-      this.WindowState = FormWindowState.Maximized;
     }
     private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      // Initialize the OpenFileDialog to look for RTF files.
       openFile1.DefaultExt = "*.xml";
       openFile1.Filter = "XML Files|*.xml";
-      // Determine whether the user selected a file from the OpenFileDialog.
       if (openFile1.ShowDialog() == DialogResult.OK &&
          openFile1.FileName.Length > 0)
       {
-        // Load the contents of the file into the RichTextBox.
         XmlTextReader xmlTextReader = new XmlTextReader(openFile1.FileName);
         string ultimaEtiqueta = "";
         while (xmlTextReader.Read())
@@ -54,16 +50,12 @@ namespace AppProyecto
       }
     }
     private void btnAbrir_Click(object sender, EventArgs e)
-    
       {
-        // Initialize the OpenFileDialog to look for RTF files.
-        openFile1.DefaultExt = "*.xml";
-        openFile1.Filter = "XML Files|*.xml";
-        // Determine whether the user selected a file from the OpenFileDialog.
+      openFile1.DefaultExt = "*.xml";
+      openFile1.Filter = "XML Files|*.xml";
         if (openFile1.ShowDialog() == DialogResult.OK &&
            openFile1.FileName.Length > 0)
         {
-          // Load the contents of the file into the RichTextBox.
           XmlTextReader xmlTextReader = new XmlTextReader(openFile1.FileName);
           string ultimaEtiqueta = "";
         XmlTextReader.Visible = true;
@@ -84,8 +76,7 @@ namespace AppProyecto
           }
         }
       }
-
-    private void BtnCargar_Click(object sender, EventArgs e)
+    private void BtnGuardar_Click(object sender, EventArgs e)
     {
         saveFile1.DefaultExt = "*.xml";
         saveFile1.Filter = "XML Files|*.xml";
@@ -95,11 +86,9 @@ namespace AppProyecto
           XmlTextReader.SaveFile(saveFile1.FileName, RichTextBoxStreamType.PlainText);
         }
     }
-
     private void button1_Click(object sender, EventArgs e)
     {
       this.Close();
-
     }
   }
 }

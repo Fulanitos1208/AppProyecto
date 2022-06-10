@@ -34,7 +34,7 @@
       this.btnAleatorio = new System.Windows.Forms.Button();
       this.btnSiguiente = new System.Windows.Forms.Button();
       this.btnAbrir = new System.Windows.Forms.Button();
-      this.Playlist = new System.Windows.Forms.ListBox();
+      this.LbPlaylist = new System.Windows.Forms.ListBox();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.btnAnterior = new System.Windows.Forms.Button();
       this.btnPausa = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
       this.sbVolumen = new System.Windows.Forms.HScrollBar();
       this.sbTiempo = new System.Windows.Forms.HScrollBar();
       this.pbAlbum = new System.Windows.Forms.PictureBox();
-      this.button1 = new System.Windows.Forms.Button();
+      this.btnCerrar = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.vlcControl1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pbAlbum)).BeginInit();
       this.SuspendLayout();
@@ -101,18 +101,18 @@
       this.btnAbrir.UseVisualStyleBackColor = false;
       this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click_1);
       // 
-      // Playlist
+      // LbPlaylist
       // 
-      this.Playlist.BackColor = System.Drawing.Color.Black;
-      this.Playlist.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.Playlist.ForeColor = System.Drawing.Color.Fuchsia;
-      this.Playlist.FormattingEnabled = true;
-      this.Playlist.Location = new System.Drawing.Point(611, 0);
-      this.Playlist.Name = "Playlist";
-      this.Playlist.Size = new System.Drawing.Size(151, 260);
-      this.Playlist.TabIndex = 9;
-      this.Playlist.Visible = false;
-      this.Playlist.SelectedIndexChanged += new System.EventHandler(this.playlist_SelectedIndexChanged);
+      this.LbPlaylist.BackColor = System.Drawing.Color.Black;
+      this.LbPlaylist.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.LbPlaylist.ForeColor = System.Drawing.Color.Fuchsia;
+      this.LbPlaylist.FormattingEnabled = true;
+      this.LbPlaylist.Location = new System.Drawing.Point(611, 0);
+      this.LbPlaylist.Name = "LbPlaylist";
+      this.LbPlaylist.Size = new System.Drawing.Size(151, 260);
+      this.LbPlaylist.TabIndex = 9;
+      this.LbPlaylist.Visible = false;
+      this.LbPlaylist.SelectedIndexChanged += new System.EventHandler(this.LbPlaylist_SelectedIndexChanged);
       // 
       // timer1
       // 
@@ -193,28 +193,28 @@
       this.pbAlbum.TabIndex = 19;
       this.pbAlbum.TabStop = false;
       // 
-      // button1
+      // btnCerrar
       // 
-      this.button1.BackColor = System.Drawing.Color.Transparent;
-      this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.button1.ForeColor = System.Drawing.Color.Red;
-      this.button1.Location = new System.Drawing.Point(910, 0);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(34, 34);
-      this.button1.TabIndex = 20;
-      this.button1.Text = "X";
-      this.button1.UseVisualStyleBackColor = false;
-      this.button1.Visible = false;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
+      this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+      this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnCerrar.ForeColor = System.Drawing.Color.Red;
+      this.btnCerrar.Location = new System.Drawing.Point(768, 0);
+      this.btnCerrar.Name = "btnCerrar";
+      this.btnCerrar.Size = new System.Drawing.Size(34, 34);
+      this.btnCerrar.TabIndex = 20;
+      this.btnCerrar.Text = "X";
+      this.btnCerrar.UseVisualStyleBackColor = false;
+      this.btnCerrar.Visible = false;
+      this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
       // 
       // frmReproductor
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Black;
-      this.ClientSize = new System.Drawing.Size(944, 469);
-      this.Controls.Add(this.button1);
+      this.ClientSize = new System.Drawing.Size(803, 388);
+      this.Controls.Add(this.btnCerrar);
       this.Controls.Add(this.pbAlbum);
       this.Controls.Add(this.lbTotalTime);
       this.Controls.Add(this.lbTime);
@@ -225,7 +225,7 @@
       this.Controls.Add(this.btnAleatorio);
       this.Controls.Add(this.btnSiguiente);
       this.Controls.Add(this.btnAbrir);
-      this.Controls.Add(this.Playlist);
+      this.Controls.Add(this.LbPlaylist);
       this.Controls.Add(this.vlcControl1);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.Name = "frmReproductor";
@@ -243,7 +243,7 @@
     private System.Windows.Forms.Button btnAleatorio;
     private System.Windows.Forms.Button btnSiguiente;
     private System.Windows.Forms.Button btnAbrir;
-    private System.Windows.Forms.ListBox Playlist;
+    private System.Windows.Forms.ListBox LbPlaylist;
     private System.Windows.Forms.Timer timer1;
     private System.Windows.Forms.Button btnAnterior;
     private System.Windows.Forms.Button btnPausa;
@@ -252,6 +252,6 @@
     private System.Windows.Forms.HScrollBar sbVolumen;
     private System.Windows.Forms.HScrollBar sbTiempo;
     private System.Windows.Forms.PictureBox pbAlbum;
-    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button btnCerrar;
   }
 }

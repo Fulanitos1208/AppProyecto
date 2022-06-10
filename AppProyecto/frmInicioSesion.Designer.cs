@@ -35,6 +35,7 @@
       this.lbContraseña = new System.Windows.Forms.Label();
       this.lbUsuario = new System.Windows.Forms.Label();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.btnCerrar = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
@@ -101,10 +102,25 @@
       this.pictureBox1.TabIndex = 12;
       this.pictureBox1.TabStop = false;
       // 
+      // btnCerrar
+      // 
+      this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+      this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.btnCerrar.ForeColor = System.Drawing.Color.Red;
+      this.btnCerrar.Location = new System.Drawing.Point(628, 27);
+      this.btnCerrar.Name = "btnCerrar";
+      this.btnCerrar.Size = new System.Drawing.Size(34, 34);
+      this.btnCerrar.TabIndex = 21;
+      this.btnCerrar.Text = "X";
+      this.btnCerrar.UseVisualStyleBackColor = false;
+      this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+      // 
       // frmInicioSesion
       // 
       this.BackColor = System.Drawing.Color.Black;
       this.ClientSize = new System.Drawing.Size(899, 469);
+      this.Controls.Add(this.btnCerrar);
       this.Controls.Add(this.pictureBox1);
       this.Controls.Add(this.btnInicioSesion);
       this.Controls.Add(this.txtContraseña);
@@ -128,6 +144,7 @@
     private System.Windows.Forms.Label lbContraseña;
     private System.Windows.Forms.Label lbUsuario;
     private System.Windows.Forms.PictureBox pictureBox1;
+    private System.Windows.Forms.Button btnCerrar;
   }
 }
 

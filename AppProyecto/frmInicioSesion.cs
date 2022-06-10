@@ -5,12 +5,12 @@ namespace AppProyecto
 {
   public partial class frmInicioSesion : Form
   {
-    frmMenu a;
+    frmMen a;
     MySqlConnection cnx;
-    public frmInicioSesion(frmMenu frmenu)
+    public frmInicioSesion(frmMen frmen)
     {
       InitializeComponent();
-      a = frmenu;
+      a = frmen;
       string cadena = "server=localhost;user=root;database=uyc;port=3306;Contraseña=";
       cnx = new MySqlConnection(cadena);
     }
@@ -33,6 +33,10 @@ namespace AppProyecto
         txtContraseña.Clear();
       }
       cnx.Close();
+    }
+    private void btnCerrar_Click(object sender, EventArgs e)
+    {
+      this.Close();
     }
   }
 }

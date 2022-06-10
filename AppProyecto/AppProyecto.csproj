@@ -33,9 +33,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Words, Version=22.6.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Words.22.6.0\lib\net461\Aspose.Words.dll</HintPath>
+    </Reference>
+    <Reference Include="Aspose.Words.Pdf2Word, Version=22.6.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Words.22.6.0\lib\net461\Aspose.Words.Pdf2Word.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySqlConnector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>..\packages\MySqlConnector.2.1.9\lib\net471\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicrosoftOfficeCore.15.0.0\lib\net35\Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SautinSoft.Document, Version=5.5.4.14, Culture=neutral, PublicKeyToken=e759c76c7515592a, processorArchitecture=MSIL">
+      <HintPath>..\packages\sautinsoft.document.5.5.4.14\lib\net472\SautinSoft.Document.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -45,6 +68,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -85,12 +109,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmExcel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmExcel.Designer.cs">
-      <DependentUpon>frmExcel.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmImagenes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,11 +121,17 @@
     <Compile Include="frmInicioSesion.Designer.cs">
       <DependentUpon>frmInicioSesion.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMenu.cs">
+    <Compile Include="frmMen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenu.Designer.cs">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <Compile Include="frmMen.Designer.cs">
+      <DependentUpon>frmMen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuDoc.Designer.cs">
+      <DependentUpon>frmMenuDoc.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOrdenadorArchivos.cs">
       <SubType>Form</SubType>
@@ -121,11 +145,11 @@
     <Compile Include="frmReproductor.Designer.cs">
       <DependentUpon>frmReproductor.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWe.cs">
+    <Compile Include="frmWord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmWe.Designer.cs">
-      <DependentUpon>frmWe.cs</DependentUpon>
+    <Compile Include="frmWord.Designer.cs">
+      <DependentUpon>frmWord.cs</DependentUpon>
     </Compile>
     <Compile Include="frmXml.cs">
       <SubType>Form</SubType>
@@ -133,16 +157,26 @@
     <Compile Include="frmXml.Designer.cs">
       <DependentUpon>frmXml.cs</DependentUpon>
     </Compile>
+    <Compile Include="lectorex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lectorex.Designer.cs">
+      <DependentUpon>lectorex.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmImagenes.resx">
       <DependentUpon>frmImagenes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInicioSesion.resx">
       <DependentUpon>frmInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMenu.resx">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <EmbeddedResource Include="frmMen.resx">
+      <DependentUpon>frmMen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuDoc.resx">
+      <DependentUpon>frmMenuDoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrdenadorArchivos.resx">
       <DependentUpon>frmOrdenadorArchivos.cs</DependentUpon>
@@ -150,8 +184,14 @@
     <EmbeddedResource Include="frmReproductor.resx">
       <DependentUpon>frmReproductor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmWord.resx">
+      <DependentUpon>frmWord.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmXml.resx">
       <DependentUpon>frmXml.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lectorex.resx">
+      <DependentUpon>lectorex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

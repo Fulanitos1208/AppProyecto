@@ -39,17 +39,6 @@
       this.redbar = new System.Windows.Forms.TrackBar();
       this.BtnGuardar = new System.Windows.Forms.Button();
       this.PbVisualizador = new System.Windows.Forms.PictureBox();
-      this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-      this.sweufeefToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.TsmFiltros = new System.Windows.Forms.ToolStripMenuItem();
-      this.TsmOriginal = new System.Windows.Forms.ToolStripMenuItem();
-      this.TsmBN = new System.Windows.Forms.ToolStripMenuItem();
-      this.TsmSepia = new System.Windows.Forms.ToolStripMenuItem();
-      this.TsmFiltro1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.TsmFiltro2 = new System.Windows.Forms.ToolStripMenuItem();
-      this.TsmFiltro3 = new System.Windows.Forms.ToolStripMenuItem();
-      this.TsmFiltro4 = new System.Windows.Forms.ToolStripMenuItem();
-      this.TsmFiltro5 = new System.Windows.Forms.ToolStripMenuItem();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.BtnAbri = new System.Windows.Forms.Button();
       this.BtnCerrar = new System.Windows.Forms.Button();
@@ -60,13 +49,12 @@
       this.button4 = new System.Windows.Forms.Button();
       this.button5 = new System.Windows.Forms.Button();
       this.button6 = new System.Windows.Forms.Button();
-      this.button7 = new System.Windows.Forms.Button();
+      this.btnFiltroBn = new System.Windows.Forms.Button();
       this.btnOriginal = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.bluebar)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.greenbar)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.redbar)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.PbVisualizador)).BeginInit();
-      this.menuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // LbBlue
@@ -201,81 +189,6 @@
       this.PbVisualizador.TabIndex = 34;
       this.PbVisualizador.TabStop = false;
       // 
-      // menuStrip1
-      // 
-      this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
-      this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sweufeefToolStripMenuItem,
-            this.TsmFiltros});
-      this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-      this.menuStrip1.Name = "menuStrip1";
-      this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-      this.menuStrip1.TabIndex = 36;
-      this.menuStrip1.Text = "menuStrip1";
-      // 
-      // sweufeefToolStripMenuItem
-      // 
-      this.sweufeefToolStripMenuItem.Name = "sweufeefToolStripMenuItem";
-      this.sweufeefToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-      this.sweufeefToolStripMenuItem.Text = "sweufeef";
-      // 
-      // TsmFiltros
-      // 
-      this.TsmFiltros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmOriginal,
-            this.TsmBN,
-            this.TsmSepia,
-            this.TsmFiltro1,
-            this.TsmFiltro2,
-            this.TsmFiltro3,
-            this.TsmFiltro4,
-            this.TsmFiltro5});
-      this.TsmFiltros.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-      this.TsmFiltros.Name = "TsmFiltros";
-      this.TsmFiltros.Size = new System.Drawing.Size(51, 20);
-      this.TsmFiltros.Text = "Filtros";
-      this.TsmFiltros.Visible = false;
-      // 
-      // TsmOriginal
-      // 
-      this.TsmOriginal.Name = "TsmOriginal";
-      this.TsmOriginal.Size = new System.Drawing.Size(67, 22);
-      // 
-      // TsmBN
-      // 
-      this.TsmBN.Name = "TsmBN";
-      this.TsmBN.Size = new System.Drawing.Size(67, 22);
-      // 
-      // TsmSepia
-      // 
-      this.TsmSepia.Name = "TsmSepia";
-      this.TsmSepia.Size = new System.Drawing.Size(67, 22);
-      // 
-      // TsmFiltro1
-      // 
-      this.TsmFiltro1.Name = "TsmFiltro1";
-      this.TsmFiltro1.Size = new System.Drawing.Size(67, 22);
-      // 
-      // TsmFiltro2
-      // 
-      this.TsmFiltro2.Name = "TsmFiltro2";
-      this.TsmFiltro2.Size = new System.Drawing.Size(67, 22);
-      // 
-      // TsmFiltro3
-      // 
-      this.TsmFiltro3.Name = "TsmFiltro3";
-      this.TsmFiltro3.Size = new System.Drawing.Size(67, 22);
-      // 
-      // TsmFiltro4
-      // 
-      this.TsmFiltro4.Name = "TsmFiltro4";
-      this.TsmFiltro4.Size = new System.Drawing.Size(67, 22);
-      // 
-      // TsmFiltro5
-      // 
-      this.TsmFiltro5.Name = "TsmFiltro5";
-      this.TsmFiltro5.Size = new System.Drawing.Size(67, 22);
-      // 
       // openFileDialog1
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
@@ -406,19 +319,19 @@
       this.button6.Visible = false;
       this.button6.Click += new System.EventHandler(this.button6_Click);
       // 
-      // button7
+      // btnFiltroBn
       // 
-      this.button7.BackColor = System.Drawing.Color.Black;
-      this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-      this.button7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-      this.button7.Location = new System.Drawing.Point(1, 62);
-      this.button7.Name = "button7";
-      this.button7.Size = new System.Drawing.Size(47, 24);
-      this.button7.TabIndex = 60;
-      this.button7.Text = "B/N";
-      this.button7.UseVisualStyleBackColor = false;
-      this.button7.Visible = false;
-      this.button7.Click += new System.EventHandler(this.button7_Click);
+      this.btnFiltroBn.BackColor = System.Drawing.Color.Black;
+      this.btnFiltroBn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+      this.btnFiltroBn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+      this.btnFiltroBn.Location = new System.Drawing.Point(1, 62);
+      this.btnFiltroBn.Name = "btnFiltroBn";
+      this.btnFiltroBn.Size = new System.Drawing.Size(47, 24);
+      this.btnFiltroBn.TabIndex = 60;
+      this.btnFiltroBn.Text = "B/N";
+      this.btnFiltroBn.UseVisualStyleBackColor = false;
+      this.btnFiltroBn.Visible = false;
+      this.btnFiltroBn.Click += new System.EventHandler(this.btnFiltroBn_Click);
       // 
       // btnOriginal
       // 
@@ -441,7 +354,7 @@
       this.BackColor = System.Drawing.Color.Black;
       this.ClientSize = new System.Drawing.Size(800, 450);
       this.Controls.Add(this.btnOriginal);
-      this.Controls.Add(this.button7);
+      this.Controls.Add(this.btnFiltroBn);
       this.Controls.Add(this.button6);
       this.Controls.Add(this.button5);
       this.Controls.Add(this.button4);
@@ -462,7 +375,6 @@
       this.Controls.Add(this.redbar);
       this.Controls.Add(this.BtnGuardar);
       this.Controls.Add(this.PbVisualizador);
-      this.Controls.Add(this.menuStrip1);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
       this.Name = "frmImagenes";
       this.Text = "frmImagenes";
@@ -470,8 +382,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.greenbar)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.redbar)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.PbVisualizador)).EndInit();
-      this.menuStrip1.ResumeLayout(false);
-      this.menuStrip1.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -490,20 +400,9 @@
     private System.Windows.Forms.TrackBar redbar;
     private System.Windows.Forms.Button BtnGuardar;
     private System.Windows.Forms.PictureBox PbVisualizador;
-    private System.Windows.Forms.MenuStrip menuStrip1;
-    private System.Windows.Forms.ToolStripMenuItem TsmFiltros;
-    private System.Windows.Forms.ToolStripMenuItem TsmOriginal;
-    private System.Windows.Forms.ToolStripMenuItem TsmBN;
-    private System.Windows.Forms.ToolStripMenuItem TsmSepia;
-    private System.Windows.Forms.ToolStripMenuItem TsmFiltro1;
-    private System.Windows.Forms.ToolStripMenuItem TsmFiltro2;
-    private System.Windows.Forms.ToolStripMenuItem TsmFiltro3;
-    private System.Windows.Forms.ToolStripMenuItem TsmFiltro4;
-    private System.Windows.Forms.ToolStripMenuItem TsmFiltro5;
     private System.Windows.Forms.OpenFileDialog openFileDialog1;
     private System.Windows.Forms.Button BtnAbri;
     private System.Windows.Forms.Button BtnCerrar;
-    private System.Windows.Forms.ToolStripMenuItem sweufeefToolStripMenuItem;
     private System.Windows.Forms.Button btnFiltros;
     private System.Windows.Forms.Button button1;
     private System.Windows.Forms.Button button2;
@@ -511,7 +410,7 @@
     private System.Windows.Forms.Button button4;
     private System.Windows.Forms.Button button5;
     private System.Windows.Forms.Button button6;
-    private System.Windows.Forms.Button button7;
+    private System.Windows.Forms.Button btnFiltroBn;
     private System.Windows.Forms.Button btnOriginal;
   }
 }

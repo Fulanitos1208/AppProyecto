@@ -10,27 +10,26 @@ namespace AppProyecto
     public frmReproductor()
     {
       InitializeComponent();
-      button1.Visible = true;
-      //Playlist.Hide();
+      btnCerrar.Visible = true;
     }
     string[] rutas, nombres;
     private void siguiente()
     {
-      if (Playlist.SelectedIndex < Playlist.Items.Count - 1)
+      if (LbPlaylist.SelectedIndex < LbPlaylist.Items.Count - 1)
       {
-        Playlist.SelectedIndex = Playlist.SelectedIndex + 1; 
+        LbPlaylist.SelectedIndex = LbPlaylist.SelectedIndex + 1; 
       }
     }
     private void anterior()
     {
-      if (Playlist.SelectedIndex > 0)
-      { Playlist.SelectedIndex = Playlist.SelectedIndex - 1; }
+      if (LbPlaylist.SelectedIndex > 0)
+      { LbPlaylist.SelectedIndex = LbPlaylist.SelectedIndex - 1; }
     }
-    private void playlist_SelectedIndexChanged(object sender, EventArgs e)
+    private void LbPlaylist_SelectedIndexChanged(object sender, EventArgs e)
     {
-      vlcControl1.Play(new Uri(rutas[Playlist.SelectedIndex])); 
+      vlcControl1.Play(new Uri(rutas[LbPlaylist.SelectedIndex])); 
 
-      TagLib.File file = TagLib.File.Create(rutas[Playlist.SelectedIndex]);
+      TagLib.File file = TagLib.File.Create(rutas[LbPlaylist.SelectedIndex]);
       var mStream = new MemoryStream();
       var firstPicture = file.Tag.Pictures.FirstOrDefault();
       if (firstPicture != null)
@@ -42,7 +41,6 @@ namespace AppProyecto
         pbAlbum.Image = bm;
         pbAlbum.SizeMode = PictureBoxSizeMode.StretchImage;
       }
-      
       timer1.Start();
     }
     private void btnSiguiente_Click_1(object sender, EventArgs e)
@@ -51,7 +49,7 @@ namespace AppProyecto
     }
     private void btnAleatorio_Click_1(object sender, EventArgs e)
     {
-        Playlist.Items.Clear();
+        LbPlaylist.Items.Clear();
         Random rand1 = new Random();
       try
       {
@@ -62,7 +60,7 @@ namespace AppProyecto
         for (int y = 0; y < rutas.Length; y++)
         {
           nombres[y] = Path.GetFileName(rutas[y]);
-          Playlist.Items.Add(nombres[y]);
+          LbPlaylist.Items.Add(nombres[y]);
         } 
     }
     private void btnPausa_Click(object sender, EventArgs e)
@@ -100,13 +98,8 @@ namespace AppProyecto
     }
     private void pbReturn_Click(object sender, EventArgs e)
     {
-      Form home = new frmMenu();
+      Form home = new frmMenuDoc();
       home.ShowDialog();
-    }
-
-    private void button1_Click(object sender, EventArgs e)
-    {
-      this.Close();
     }
     private void btnAbrir_Click_1(object sender, EventArgs e)
     {
@@ -119,17 +112,20 @@ namespace AppProyecto
         rutas = openFileDialog.FileNames;
         btnAleatorio.Visible = true;
         btnSiguiente.Visible = true;
-       
         vlcControl1.Visible = true;
         btnAnterior.Visible = true;
-        Playlist.Visible = true;
+        LbPlaylist.Visible = true;
         btnPausa.Visible = true;
         for (int i = 0; i < nombres.Length; i++)
         {
-          Playlist.Items.Add(nombres[i]);
+          LbPlaylist.Items.Add(nombres[i]);
           vlcControl1.Play(new Uri(rutas[0]));
         }
       }
+    }
+    private void btnCerrar_Click(object sender, EventArgs e)
+    {
+      this.Close();
     }
   }
 }

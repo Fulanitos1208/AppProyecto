@@ -2,16 +2,11 @@
 using System.Windows.Forms;
 namespace AppProyecto
 {
-  public partial class frmMenu : Form
+  public partial class frmMenuDoc : Form
   {
-    public frmMenu()
+    public frmMenuDoc()
     {
       InitializeComponent();
-      this.Opacity = 0;
-      this.ShowInTaskbar = false;
-      frmInicioSesion f = new frmInicioSesion(this);
-      f.WindowState = FormWindowState.Maximized;
-      f.ShowDialog();
     }
     private void btnRepM_Click(object sender, EventArgs e)
     {
@@ -32,6 +27,20 @@ namespace AppProyecto
     {
       Form Xml = new frmXml();
       Xml.Show(); 
+    }
+    private void button1_Click(object sender, EventArgs e)
+    {
+      this.Close();
+    }
+    private void btnWord_Click(object sender, EventArgs e)
+    {
+      Form Word = new frmWord();
+      Word.Show();
+    }
+    private void button2_Click(object sender, EventArgs e)
+    {
+      lectorex le = new lectorex();
+      le.Show();
     }
   }
 }

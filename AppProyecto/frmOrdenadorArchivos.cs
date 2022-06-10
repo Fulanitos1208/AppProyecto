@@ -15,23 +15,22 @@ namespace AppProyecto
     {
       InitializeComponent();
     }
-    private void button1_Click(object sender, EventArgs e)
+    private void BtnRuta_Click(object sender, EventArgs e)
     {
       Borrar();
       ChooseFolder();
       btnAnterior.Visible = true;
       btnSiguiente.Visible = true;
     }
-    DirectoryInfo folderInfo;
     public void ChooseFolder()
     {
       FolderBrowserDialog dialogo = new FolderBrowserDialog();
       if (dialogo.ShowDialog() == DialogResult.OK)
       {
-        textBox1.Text = dialogo.SelectedPath;
+        textBox1.Text = dialogo.SelectedPath;//ruta seleccionada
         pbCopiar.Visible = true;
         pbMover.Visible = true;
-        label2.Visible = true;
+        LbCopiar.Visible = true;
         lbMover.Visible = true;
         DirectoryInfo di = new DirectoryInfo(dialogo.SelectedPath);
         treeView1.AfterSelect += TreeView1_AfterSelect;
@@ -42,12 +41,12 @@ namespace AppProyecto
     private void LlenarArbol(DirectoryInfo di, TreeNodeCollection tnc)
     {
       TreeNode nodo = tnc.Add(di.Name);
-      foreach (FileInfo archivo in di.GetFiles())
+      foreach (FileInfo archivo in di.GetFiles())// Por cada archivo en el directorio
       {
-          nodo.Nodes.Add(archivo.FullName, archivo.Name);
+        nodo.Nodes.Add(archivo.FullName, archivo.Name);
         archivos.Add(archivo);
       }
-      foreach (DirectoryInfo sdi in di.GetDirectories())
+      foreach (DirectoryInfo sdi in di.GetDirectories())// Por cada directorio que haya en el directorio
       {
         LlenarArbol(sdi, nodo.Nodes);
       }
@@ -55,14 +54,14 @@ namespace AppProyecto
     private void Borrar()
     {
       textBox1.Clear();
-      richTextBox1.Clear();
+      RtbVisualizadorTex.Clear();
       treeView1.Nodes.Clear();
-      pictureBox1.Image = null;
+      PbVisualizadorImg.Image = null;
     }
     private void OrganizarMover()
     {
-      FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-      MessageBox.Show("Selecciona donde se creara la nueva carpeta organizada");
+      FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();// crea un objeto del tipo FolderBrowsereDialog
+      MessageBox.Show("Selecciona donde se creara la nueva carpeta");
       if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
       {
         Directory.CreateDirectory(folderBrowserDialog.SelectedPath + "\\Carpeta Organizada");
@@ -83,50 +82,47 @@ namespace AppProyecto
     }
     private void MoverArchivos(DirectoryInfo di)
     {
-      foreach (FileInfo file in archivos)
+      foreach (FileInfo file in archivos) //por cada
       {
+        if (file.Extension ==".jpg"|| file.Extension==".jpeg"|| file.Extension==".png")
         {
-          if (file.Extension ==".jpg"|| file.Extension==".jpeg"|| file.Extension==".png")
+          try //intentar
           {
-            try
-            {
-             FileSystem.MoveFile(file.FullName, di + "\\Carpeta Organizada\\ Imagenes" + file, UIOption.AllDialogs);
-            }
-            catch (Exception ex)  { }
+            FileSystem.MoveFile(file.FullName, di + "\\Carpeta Organizada\\ Imagenes" + file, UIOption.AllDialogs);
           }
-          else if (file.Extension==".mp3"|| file.Extension==".m4a")
+          catch (Exception ex)  { }
+        }
+        else if (file.Extension==".mp3"|| file.Extension==".m4a")
+        {
+          try
           {
-            try
-            {
-               FileSystem.MoveFile(file.FullName, di + "\\Carpeta Organizada\\Audio\\" + file, UIOption.AllDialogs); 
-            }
-            catch (Exception) {}
+              FileSystem.MoveFile(file.FullName, di + "\\Carpeta Organizada\\Audio\\" + file, UIOption.AllDialogs); 
           }
-          else if (file.Extension==".mp4"|| file.Extension==".mov")
+          catch (Exception) {}
+        }
+        else if (file.Extension==".mp4"|| file.Extension==".mov")
+        {
+          try
           {
-            try
-            {
-              FileSystem.MoveFile(file.FullName, di + "\\Carpeta Organizada\\Video\\" + file, UIOption.AllDialogs);
-            }
-            catch (Exception) {}
+            FileSystem.MoveFile(file.FullName, di + "\\Carpeta Organizada\\Video\\" + file, UIOption.AllDialogs);
           }
-          else if (file.Extension == ".cs" || file.Extension == ".txt" || file.Extension == ".docx" || file.Extension == ".pptx" || file.Extension == ".pdf" || file.Extension == ".PDF" || file.Extension == ".xlsx")
+          catch (Exception) {}
+        }
+        else if (file.Extension == ".cs" || file.Extension == ".txt" || file.Extension == ".docx" || file.Extension == ".pptx" || file.Extension == ".pdf" || file.Extension == ".PDF" || file.Extension == ".xlsx")
+        {
+          try
+          { FileSystem.MoveFile(file.FullName, di + "\\Carpeta Organizada\\Documentos\\" + file, UIOption.AllDialogs); }
+          catch (Exception ex) { }
+        }
+        else
+        {
+          try
           {
-            try
-            { FileSystem.MoveFile(file.FullName, di + "\\Carpeta Organizada\\Documentos\\" + file, UIOption.AllDialogs); }
-            catch (Exception ex) { }
+            FileSystem.MoveFile(file.FullName, di+ "\\Carpeta Organizada\\Archivos\\" + file, UIOption.AllDialogs);
           }
-          else
+          catch (Exception)
           {
-            try
-            {
-              FileSystem.MoveFile(file.FullName, di+ "\\Carpeta Organizada\\Archivos\\" + file, UIOption.AllDialogs);
-            }
-            catch (Exception)
-            {
-
-              throw;
-            }
+            throw;
           }
         }
       }
@@ -135,7 +131,6 @@ namespace AppProyecto
     {
       foreach (FileInfo file in archivos)
       {
-
         if (file.Extension == ".jpg" || file.Extension == ".jpeg" || file.Extension == ".png")
         {
           try
@@ -173,50 +168,60 @@ namespace AppProyecto
       if (e.Node.Name.EndsWith("txt") || e.Node.Name.EndsWith("cs") || e.Node.Name.EndsWith("pdf") || e.Node.Name.EndsWith("exe"))
 
       {
-        richTextBox1.Clear();
+        RtbVisualizadorTex.Clear();
         StreamReader lector = new StreamReader(e.Node.Name);
-        richTextBox1.Text = lector.ReadToEnd();
+        RtbVisualizadorTex.Text = lector.ReadToEnd();
         lector.Close();
-        pictureBox1.Visible = false;
-        richTextBox1.Visible = true;
+        PbVisualizadorImg.Visible = false;
+        RtbVisualizadorTex.Visible = true;
         btnAnterior.Visible = false;
         btnSiguiente.Visible = false;
         btnFrmEditor.Visible = false;
-        button2.Visible = false;
-        pictureBox1.BorderStyle = BorderStyle.None;
-        MenuStrip1.Visible = true;
+        PbVisualizadorImg.BorderStyle = BorderStyle.None;
       }
       if (e.Node.Name.EndsWith("jpg") || e.Node.Name.EndsWith("png") || e.Node.Name.EndsWith("gif" +
       ""))
       {
         Image image = Image.FromFile(e.Node.Name);
-        pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-        pictureBox1.Image = image;
-        pictureBox1.Visible = true;
-        richTextBox1.Visible = false;
+        PbVisualizadorImg.SizeMode = PictureBoxSizeMode.StretchImage;
+        PbVisualizadorImg.Image = image;
+        PbVisualizadorImg.Visible = true;
+        RtbVisualizadorTex.Visible = false;
         btnAnterior.Visible = true;
         btnSiguiente.Visible = true;
         btnFrmEditor.Visible = true;
-        button2.Visible = true;
-        richTextBox1.BorderStyle = BorderStyle.None;
-        MenuStrip1.Visible = true;
+        RtbVisualizadorTex.BorderStyle = BorderStyle.None;
       }
     }
-    private void pictureBox1_DoubleClick(object sender, EventArgs e)
+    private void PbVisualizadorImg_Click(object sender, EventArgs e)
     {
-      pictureBox1.Dock = DockStyle.Fill;
-      FormBorderStyle = FormBorderStyle.None;
-      WindowState = FormWindowState.Maximized;
-      btnAnterior.Visible = false;
-      btnSiguiente.Visible = false;
-    }
-    private void pictureBox1_Click(object sender, EventArgs e)
-    {
-      pictureBox1.Dock = DockStyle.None;
+      PbVisualizadorImg.Dock = DockStyle.None;
       FormBorderStyle = FormBorderStyle.None;
       WindowState = FormWindowState.Normal;
       btnAnterior.Visible = true;
       btnSiguiente.Visible = true;
+      pbCopiar.Visible = true;
+      pbMover.Visible = true;
+      BtnRuta.Visible = true;
+      btnFrmEditor.Visible = true;
+      btnCerrar.Visible = true;
+      lbMover.Visible = true;
+      LbCopiar.Visible = true;
+    }
+    private void PbVisualizadorImg_DoubleClick(object sender, EventArgs e)
+    {
+      PbVisualizadorImg.Dock = DockStyle.Fill;
+      FormBorderStyle = FormBorderStyle.None;
+      WindowState = FormWindowState.Maximized;
+      btnAnterior.Visible = false;
+      btnSiguiente.Visible = false;
+      pbCopiar.Visible = false;
+      pbMover.Visible = false;
+      BtnRuta.Visible = false;
+      btnFrmEditor.Visible = false;
+      btnCerrar.Visible= false;
+      lbMover.Visible = false;
+      LbCopiar.Visible = false;
     }
     InputSimulator sim = new InputSimulator();
     private void btnAnterior_Click(object sender, EventArgs e)
@@ -231,17 +236,12 @@ namespace AppProyecto
     }
     private void button2_Click(object sender, EventArgs e)
     {
-      //inicializar();
       timer1.Start();
     }
     private void timer1_Tick(object sender, EventArgs e)
     {
       cont += 1;
       label1.Text = "" + cont;
-    }
-    private void BtnRuta_Click(object sender, EventArgs e)
-    {
-      ChooseFolder();
     }
     private void pbCopiar_Click(object sender, EventArgs e)
     {
@@ -253,7 +253,7 @@ namespace AppProyecto
     }
     private void pbReturn_Click(object sender, EventArgs e)
     {
-      Form home = new frmMenu();
+      Form home = new frmMenuDoc();
       home.ShowDialog();
     }
     private void btnFrmEditor_Click(object sender, EventArgs e)
@@ -261,8 +261,7 @@ namespace AppProyecto
       Form edit = new frmImagenes();
       edit.ShowDialog();
     }
-
-    private void button1_Click_1(object sender, EventArgs e)
+    private void btnCerrar_Click(object sender, EventArgs e)
     {
       this.Close();
     }
